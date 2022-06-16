@@ -73,7 +73,7 @@ func (h *Handler) samlSSOConsole(w http.ResponseWriter, r *http.Request, p httpr
 		ConnectorID:       req.ConnectorID,
 		ClientRedirectURL: req.RedirectURL,
 		PublicKey:         req.PublicKey,
-		CertTTL:           types.Duration(req.CertTTL),
+		CertTTL:           int64(req.CertTTL),
 		Compatibility:     req.Compatibility,
 		RouteToCluster:    req.RouteToCluster,
 		KubernetesCluster: req.KubernetesCluster,
