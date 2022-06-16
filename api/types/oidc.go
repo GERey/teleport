@@ -437,7 +437,7 @@ func (i *OIDCAuthRequest) Check() error {
 		if err != nil {
 			return trace.BadParameter("PublicKey: bad key: %v", err)
 		}
-		if (time.Duration(i.CertTTL) > defaults.MaxCertDuration) || (time.Duration(i.CertTTL) < defaults.MinCertDuration) {
+		if (i.CertTTL > defaults.MaxCertDuration) || (i.CertTTL < defaults.MinCertDuration) {
 			return trace.BadParameter("CertTTL: wrong certificate TTL")
 		}
 	}

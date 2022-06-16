@@ -221,7 +221,7 @@ func TestSSODiagnostic(t *testing.T) {
 	oidcRequest := types.OIDCAuthRequest{
 		ConnectorID:   "-sso-test-okta",
 		Type:          constants.OIDC,
-		CertTTL:       int64(defaults.OIDCAuthRequestTTL),
+		CertTTL:       defaults.OIDCAuthRequestTTL,
 		SSOTestFlow:   true,
 		ConnectorSpec: &spec,
 	}
