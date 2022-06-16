@@ -176,6 +176,10 @@ ENV GOPATH="/go" \
     GOROOT="/opt/go" \
     PATH="/opt/bin:$PATH:/opt/go/bin:/go/bin:/go/src/github.com/gravitational/teleport/build"
 
+# BUILDARCH is automatically set by DOCKER when building the image with Build Kit (MacOS by deafult).
+# https://docs.docker.com/engine/reference/builder/#automatic-platform-args-in-the-global-scope
+ARG BUILDARCH
+
 # Install protoc (for prost, a roletester dependency)
 ARG PROTOC_VER
 RUN (export PROTOC_TARBALL=protoc-${PROTOC_VER}-linux-$(if [ "$BUILDARCH" = "amd64" ]; then echo "x86_64"; else echo "aarch_64"; fi).zip && \
